@@ -48,4 +48,15 @@ for row in cursor:
    print ("SKILL NAME = ", row[1])
    print ("SKILL STATUS = ", row[2])
 
+skill_name = var = raw_input("Press enter to view if skills are studied or not studied: ")
+
+db1 = cursor.execute("SELECT id, skill_name, skill_status  from skills")
+for row in cursor:
+    if row[2] == 'studied':
+        print "you've studied ", row[1]
+    else:
+        print "You've not studied", row[1]            
+   
+           
+
 db.close()
