@@ -1,12 +1,15 @@
 import sqlite3
 
-conn = sqlite3.connect('my.db')
+conn = sqlite3.connect('skills.db')
 print "Opened database successfully";
 
 
-cursor = conn.execute("SELECT id, name, address, salary  from my")
+cursor = conn.execute("SELECT id, skill_name, skill_status  from skills")
 for row in cursor:
-   if row[1] == 'Paul':
-		print "you've studied ", row[2]
+	if row[2] == 'studied':
+		print "you've studied ", row[1]
+	else: 
+		print "You've not studied", row[1]
+		
 print "Operation done successfully";
 conn.close()
